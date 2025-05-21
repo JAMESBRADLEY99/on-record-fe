@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>On Record</title>
+    </head>
+
+    <script>
+        function Search(searchText) {
+            if (searchText===undefined) {
+                return false;
+            }
+            const url = `http://localhost:9000/searchAlbums/${searchText}`
+            fetch(url, {
+                method: "GET",
+            }).then(response => {
+                return response.json()
+            }).then(data => {
+                document.getElementById("results").innerHTML = JSON.stringify(data);
+            })
+        }
+    </script>
+
+    <body>
+        <h1>
+            Search
+        </h1>
+
+        <form onsubmit="Search(document.getElementById('search-text').value); return false">
+            <input id="search-text" name="search">
+            <button onclick="Search()">search</button>
+        </form>
+
+        <body>
+            <p id="results">
+            </p>
+        </body>
+    </body>
+</html>
