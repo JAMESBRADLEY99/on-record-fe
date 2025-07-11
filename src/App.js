@@ -7,6 +7,9 @@ function App() {
 
   const handleSearch = (e) => {
     e.preventDefault();
+    if (!searchText) {
+      return;
+    }
     fetch(`http://localhost:9000/searchAlbums/${searchText}`)
       .then(res => res.json())
       .then(data => setResults(JSON.stringify(data)))
