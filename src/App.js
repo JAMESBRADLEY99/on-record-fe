@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 
 function App() {
   const [searchText, setSearchText] = useState('');
-  const [results, setResults] = useState('');
+  const [results, setResults] = useState([]);
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -12,11 +12,11 @@ function App() {
     }
     fetch(`http://localhost:9000/searchAlbums/${searchText}`)
       .then(res => res.json())
-      .then(data => setResults(JSON.stringify(data)))
+      .then(data => setResults(data))
   };
 
   return (
-    <div>
+    <div className="main">
       <h1>Search</h1>
       <form onSubmit={handleSearch}>
         <input
@@ -25,7 +25,16 @@ function App() {
         />
         <button type="submit">Search</button>
       </form>
-      <p>{results}</p>
+      <ul className="no-bullets">
+        {results.map((item, index) => (
+          <>
+          <li key={index}>
+            {item.name}
+          </li>
+            <p className="artist" >{item.artist}</p>
+          </>
+        ))}
+      </ul>
     </div>
   );
 }

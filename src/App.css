@@ -28,6 +28,19 @@
   color: #61dafb;
 }
 
+.main {
+  padding-left: 1rem;
+}
+
+.artist {
+  font-size: 0.8rem;
+}
+
+.no-bullets {
+  list-style-type: none;
+  padding-left: 0;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
