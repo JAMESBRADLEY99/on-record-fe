@@ -29,7 +29,7 @@ function App() {
         {results.map((item, index) => (
           <>
           <li key={index}>
-            {item.name}
+            <a href={`https://open.spotify.com/album/${item.album_id}`}>{item.name}</a>
           </li>
             <p className="artist" >{item.artist}</p>
           </>
