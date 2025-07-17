@@ -24,20 +24,49 @@
   color: white;
 }
 
-.custom-navbar {
-  display: flex;
-  gap: 16px; /* space between links */
-  padding: 16px;
-}
-
-
 .App-link {
   color: #61dafb;
 }
 
-.main {
-  padding-left: 1rem;
+.custom-navbar {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  max-width: 800px;
+  padding: 1rem 0rem;
+  gap: 2rem;
+  min-width: 400px;
 }
+
+.main {
+  padding: 1rem 0rem;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  max-width: 800px;
+  min-width: 400px;
+}
+
+.Tracks {
+  padding: 0.5rem 1rem;
+}
+
+.Track {
+  margin: 0;
+}
+
+.albumArt {
+  width: 70%;
+}
+
+.searchBar {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  gap: 1rem;
+}
+
 
 .artist {
   font-size: 0.8rem;
