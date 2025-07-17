@@ -1,41 +1,21 @@
 import './App.css';
-import React, { useState } from 'react';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import HomePage from './pages/HomePage';
+import SearchPage from './pages/SearchPage';
 
 function App() {
-  const [searchText, setSearchText] = useState('');
-  const [results, setResults] = useState([]);
-
-  const handleSearch = (e) => {
-    e.preventDefault();
-    if (!searchText) {
-      return;
-    }
-    fetch(`http://localhost:9000/searchAlbums/${searchText}`)
-      .then(res => res.json())
-      .then(data => setResults(data))
-  };
-
   return (
-    <div className="main">
-      <h1>Search</h1>
-      <form onSubmit={handleSearch}>
-        <input
-          value={searchText}
-          onChange={(e) => setSearchText(e.target.value)}
-        />
-        <button type="submit">Search</button>
-      </form>
-      <ul className="no-bullets">
-        {results.map((item, index) => (
-          <>
-          <li key={index}>
-            <a href={`https://open.spotify.com/album/${item.album_id}`}>{item.name}</a>
-          </li>
-            <p className="artist" >{item.artist}</p>
-          </>
-        ))}
-      </ul>
-    </div>
+    <Router>
+      <nav className="custom-navbar">
+        <Link to="/">On Record</Link>
+        <Link to="/search">Search Page</Link>
+      </nav>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/search" element={<SearchPage />} />
+      </Routes>
+    </Router>
   );
 }
 
