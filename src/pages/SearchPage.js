@@ -28,7 +28,7 @@ function SearchPage() {
         {results.map((item, index) => (
           <>
           <li key={index}>
-            <a href={`https://open.spotify.com/album/${item.album_id}`}>{item.name}</a>
+            <a href={`/album/${item.album_id}`}>{item.name}</a>
           </li>
             <p className="artist" >{item.artist}</p>
           </>
