@@ -24,6 +24,13 @@
   color: white;
 }
 
+.custom-navbar {
+  display: flex;
+  gap: 16px; /* space between links */
+  padding: 16px;
+}
+
+
 .App-link {
   color: #61dafb;
 }
