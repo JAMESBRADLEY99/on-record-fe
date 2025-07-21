@@ -26,11 +26,11 @@ function AlbumPage() {
                 <div className='main'>
                     <h1>{albumData.name}</h1>
                     <h3>{albumData.artist}</h3>
-                    <img src={albumData.album_art} alt={albumData.name}/>
-                    <ol>
+                    <img className='albumArt' src={albumData.album_art} alt={albumData.name}/>
+                    <ol className="Tracks">
                         {albumData.track_listing?.map((track, index) => (
                             <li key={index}>
-                                <p>{track.name}</p>
+                                <p className="Track">{track.name}</p>
                             </li>
                         ))}
                     </ol>
